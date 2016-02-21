@@ -1,0 +1,14 @@
+{
+    "name": "sensorService",
+    "version": "0.1",
+    "main": "app.js",
+    "dependencies": {
+        "express" : "latest",
+        "mongoose" : "latest",
+        "connect": "latest",
+        "request": "latest"
+ 
+ 
+  }
+}
+

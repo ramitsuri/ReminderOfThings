@@ -1,0 +1,66 @@
+{
+  "project": {
+    "projectSettingsVersion": "2.0.0",
+    "initialAutoPluginCount": 0,
+    "currentBuildConfiguration": null,
+    "projectFiles": {},
+    "projectDirectories": {}
+  },
+  "iot-tab": {
+    "fileStatus": {
+      "icon.png": {
+        "previousModTime": 1456009594330,
+        "modified": 1456009594330,
+        "seen": true,
+        "name": "icon.png"
+      },
+      "lightsensor.html": {
+        "previousModTime": 1456009594330,
+        "modified": 1456009594330,
+        "seen": true,
+        "name": "lightsensor.html"
+      },
+      "main.js": {
+        "previousModTime": 1456050048045,
+        "modified": 1456050048045,
+        "seen": true,
+        "name": "main.js"
+      },
+      "package.json": {
+        "previousModTime": 1456009594330,
+        "modified": 1456009594330,
+        "seen": true,
+        "name": "package.json"
+      },
+      "README.md": {
+        "previousModTime": 1456009594330,
+        "modified": 1456009594330,
+        "seen": true,
+        "name": "README.md"
+      },
+      "WebServer.xdk": {
+        "previousModTime": 1456009594462,
+        "modified": 1456009594462,
+        "seen": true,
+        "name": "WebServer.xdk"
+      },
+      "WebServer.xdke": {
+        "previousModTime": 1456049887157,
+        "modified": 1456049887157,
+        "seen": true,
+        "name": "WebServer.xdke"
+      },
+      "xdk/project-info.json": {
+        "previousModTime": 1456009594450,
+        "modified": 1456009594450,
+        "seen": true,
+        "name": "xdk/project-info.json"
+      }
+    },
+    "boardFileStatus": {
+      "main.js": {
+        "previousModTime": 1456050082941
+      }
+    }
+  }
+}
