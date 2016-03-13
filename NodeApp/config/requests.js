@@ -2,12 +2,13 @@ var mongoose = require('mongoose');
 var request = require('request');
 var models = require('../config/models');
 var gcm = require('node-gcm');
-
+var http = require('http');
+var sensorURL = "";
 
 var sensor = models.sensor;
 var client = models.client;
 
-exports.register = function(sensorID,name,gcmID,callback){
+var register = function(sensorID,name,gcmID,callback){
    var newSensor = new sensor({
      sensorID: sensorID,
      name: name,
@@ -20,7 +21,7 @@ exports.register = function(sensorID,name,gcmID,callback){
   });
 }
 
-exports.registerClient = function(clientID,registrationID,callback){
+var registerClient = function(clientID,registrationID,callback){
   client.find({clientID:clientID},function(err,clients){
     var len = clients.length;
     if(len == 0){
@@ -37,7 +38,7 @@ exports.registerClient = function(clientID,registrationID,callback){
 
 }
 
-  exports.sendMessage = function(){
+  var sendMessage = function(){
 client.find(function(err,clients){
   if(clients.length!=0){
       var reg_ID = clients[0].registrationID;
@@ -58,3 +59,34 @@ client.find(function(err,clients){
     });
 
   }
+
+  var checkSensor = function(callback){
+    var options = {
+  host: '172.17.24.243',
+  port: 1337,
+  path: '/get',
+  method: 'GET'
+};
+
+http.request(options, function(res) {
+  res.setEncoding('utf8');
+  res.on('data', function (chunk) {
+    var data = JSON.parse(chunk);
+//    console.log(data.lightLevel);
+setTimeout(function(){
+if(data.lightLevel<20){
+  console.log('gji');
+  sendMessage();
+}
+}, 10000);
+    callback({'response':chunk});
+  });
+}).end();
+//callback({'response':"hello"});
+  }
+module.exports = {
+  register: register,
+    registerClient:registerClient,
+    sendMessage:sendMessage,
+    checkSensor:checkSensor
+}
